@@ -268,6 +268,7 @@ header label{
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid #ffbd39;
     box-shadow: 4px 6px 6px #ffbd39;
+    margin-bottom: 20px;
 }
 
 .column-1 h4{
@@ -321,6 +322,7 @@ header label{
     border: 2px solid #ffbd39;
     box-shadow: 4px 6px 6px #ffbd39;
     color: #fff;
+    margin-bottom: 20px;
 }
 
 .column-2 h4{
@@ -355,8 +357,8 @@ header label{
     text-shadow: -10px 20px rgba(153, 145, 145,0.5);
     margin-bottom: 40px;
 }
-#Project-section .column-3{
-    margin-top: 15px;
+/* #Project-section .column-3{
+    margin-top: 25px;
     box-shadow: 2px 6px 6px #ffbd39;
     display: flex;
     flex-direction: column;
@@ -369,6 +371,21 @@ header label{
 .column-3 h4{
     color: #ffbd39;
 }
+
+.column-4 h4{
+    color: #ffbd39;
+}
+
+#Project-section .column-4{
+    margin-top: 25px;
+    box-shadow: 2px 6px 6px #ffbd39;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    align-items: center;    
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid #ffbd39;
+}  */
 
 #Project-section hr{
     color: #ffbd39;
