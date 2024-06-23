@@ -6,16 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="portfolio">
   <!------------------------ Navbar ------------------------->
   <input type="checkbox" id="check">
-  <header >
+  <header>
     <h2 class="logo">Ishika Bansal</h2>
     <nav class="navigation">
       <a href="#Home-section" class="active">Home</a>
@@ -55,7 +57,7 @@ Bansal</h1></pre></b></i>
       <!-------------------------- Image -------------------------->
       <div class="image">
         <div class="pic">
-          <img src="ISHI.jpg">
+          <img src="/img/ISHI.jpg">
         </div>
       </div>
     </div>
@@ -73,7 +75,7 @@ Bansal</h1></pre></b></i>
               <div class="row">
                 <div class="col-sm-6 col-md-5">
                   <div class="about-img">
-                    <img src="Image2.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                    <img src="/img/Image2.jpg" class="img-fluid rounded b-shadow-a" alt="">
                   </div>
                 </div>
                 <!------------ Details next to profile image -------->
@@ -149,8 +151,7 @@ Bansal</h1></pre></b></i>
               <p class="mb-4">
                 <span>5+ Projects completed</span>
               </p>
-              <button type="button" class="linked"><a
-                  href="/Portfolio/">LinkedIn</a>
+              <button type="button" class="linked"><a href="/Portfolio/">LinkedIn</a>
               </button>
             </div>
           </div>
@@ -162,11 +163,11 @@ Bansal</h1></pre></b></i>
 
   <div class="container" id="resume-section">
     <!----------------------- Resume Section --------------------------->
-    <div class="resume">
+    <div class="resume ">
       <h1>Resume</h1>
-      <pre>A 2nd year student of B.Tech CSE and a Web Developer and Graphic Designer
-Also a core member of Robotronics Club and interested in Web development and AI/ML
-  </pre>
+      <p class="resume-text">A student of B.Tech CSE and a Web Developer and Graphic Designer.
+        Also a core member of Robotronics Club and interested in Web development and AI/ML
+      </p>
       <div class="experience my-3">
         <h2>Experience</h2>
         <hr>
@@ -187,12 +188,12 @@ Also a core member of Robotronics Club and interested in Web development and AI/
             <h4>Codsoft</h4>
             <p>Internship Student, Mullana,Ambala, Haryana</p>
             <p class="date">01/052024 - 31/05/2024</p>
-            <p class="cmpny">CodSoft are IT services and IT consultancy that specializes in creating innovative solutions for businesses.
-              Their aim is to help students lacking basic skills by offering hands-on learning through live projects and real-world examples so likewise I worked as intern of Web development
+            <p class="cmpny">CodSoft are IT services and IT consultancy that specializes in creating innovative
+              solutions for businesses.
+              Their aim is to help students lacking basic skills by offering hands-on learning through live projects and
+              real-world examples so likewise I worked as intern of Web development
               and make several projects using HTML,CSS and JavaScript.
-              
-
-               </p>
+            </p>
           </div>
 
         </div>
@@ -252,172 +253,304 @@ Also a core member of Robotronics Club and interested in Web development and AI/
       </div>
       <!---------------------------------------------- End of Education ----------------------------------->
       <div class="down"><button type="button" class="btn btn-outline-warning"><a href="/">Download CV</a></div>
-      
+
     </div>
-    
+
   </div>
   <!-------------------------------------- End of Resume Section ------------------------------------->
 
   <!------------------------------------- Project-section ------------------------------------------->
   <div class="container" id="Project-section">
     <div class="project">
-      <h1>Projects</h1>
-      <hr>
-      <div class="container">
-        <div class="filter-buttons">
-            <button class="btn">ALL</button>
-            <button class="btn">Web Development</button>
-            <button class="btn">React</button>
-            <button class="btn">Other</button>
-
+      <section class="container mt-5 ">
+        <div class="row">
+          <div class="col-12">
+            <h1>Projects</h1>
+            <hr>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <ul class="nav nav-underline justify-content-center mt-3 g-2" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active fs-5 me-2 me-md-4" id="all-tab" data-bs-toggle="tab"
+                  data-bs-target="#all-tab-pane" type="button" role="tab" aria-controls="all-tab-pane"
+                  aria-selected="true">All</button>
+              </li>
+              <li class="nav-item" role="presentation">
 
-        <div class="portfolio-container">
-            <div class="portfolio-box">
-                    <img src="evofriend.jpeg" alt="">
-                <div class="portfolio-layer">
-                    <h3>EvoFriend</h3>
-                    <p>A chatbot which gives all the answer to the environment related questions.</p>
-                        <a href = ""></a>
-                </div>
-            </div>
+                <button class="nav-link fs-5 me-2 me-md-4" id="profile-tab" data-bs-toggle="tab"
+                  data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
+                  aria-selected="false">Web development</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fs-5 me-2 me-md-4" id="react-tab" data-bs-toggle="tab"
+                  data-bs-target="#react-tab-pane" type="button" role="tab" aria-controls="react-tab-pane"
+                  aria-selected="false">React</button>
 
-            <div class="portfolio-box">
-                <img src="terrain.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h3>Terrain Generator</h3>
-                    <p>Terrain Generator simple AI model which represents the satellite image of the terrain in the graphical format
-                      which make them easy to examine.</p>
-                        <a href = ""></a>
-                </div>
-            </div>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fs-5 me-2 me-md-4" id="other-tab" data-bs-toggle="tab"
+                  data-bs-target="#other-tab-pane" type="button" role="tab" aria-controls="other-tab-pane"
+                  aria-selected="false">Others</button>
 
-            
-            <div class="portfolio-box">
-                <img src="curecrafter.png" alt="">
-                <div class="portfolio-layer">
-                    <h3>CureCrafter</h3>
-                    <p>CureCrafter is a simple but effective AI chatbot which provides home remedies for common ailments</p>
-                        <a href = ""></a>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
+                tabindex="0">
+                <div class="row mt-4 g-2">
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix other">
+                      <img src="/img/evofriend.jpeg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>EvoFriend</h3>
+                        <p>A chatbot which give all the answer to the environment related questions.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix other">
+                      <img src="/img/terrain.jpg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>Terrain Generator</h3>
+                        <p>Terrain Generator simple AI model which represents the satellite image of the terrain in the
+                          graphical format
+                          which make them easy to examine.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix web">
+                      <img src="/img/curecrafter.png" alt="">
+                      <div class="portfolio-layer">
+                        <h3>CureCrafter</h3>
+                        <p>CureCrafter is a simple but effective AI chatbot which provides home remedies for common
+                          ailments.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        
-            <div class="portfolio-box">
-                <img src="icoder.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h3>iCoder Clone</h3>
-                    <p>A clone of the iCoder website built using Bootstrap. 
-                      It replicates the design and functionality of the original site, 
-                           leveraging Bootstrap's responsive grid system and components for a modern,
-                                 mobile-friendly user experience.</p>
-                        <a href = ""></a>
+                <div class="row mt-4 g-2">
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix web">
+                      <img src="/img/icoder.jpg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>iCoder Clone</h3>
+                        <p>A clone of the iCoder website built using Bootstrap.
+                          It replicates the design and functionality of the original site,
+                          leveraging Bootstrap's responsive grid system and components for a modern,
+                          mobile-friendly user experience.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix web">
+                      <img src="/img/tic-tac-toe.jpg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>Tic-Tac-Toe</h3>
+                        <p>Experience the classic fun of Tic Tac Toe with a sleek, modern twist—play anywhere, anytime
+                          on your browser!</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix react">
+                      <img src="/img/course.jpg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>StudyHub</h3>
+                        <p>A web application for showcasing a list of courses and their details using React.
+                          The web application is used to implement the course listing page,
+                          a course details page, and a student dashboard to display enrolled courses.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        
-            <div class="portfolio-box">
-                <img src="course.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h3>Course App</h3>
-                    <p>A web application for showcasing a list of courses and their details using React. 
-                      The web application is used to implement the course listing page,
-                       a course details page, and a student dashboard to display enrolled courses.</p>
-                        <a href = ""></a>
+              </div>
+              <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                tabindex="0">
+                <div class="row mt-4 g-2">
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix web">
+                      <img src="/img/curecrafter.png" alt="">
+                      <div class="portfolio-layer">
+                        <h3>CureCrafter</h3>
+                        <p>CureCrafter is a simple but effective AI chatbot which provides home remedies for common
+                          ailments.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix web">
+                      <img src="/img/icoder.jpg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>iCoder Clone</h3>
+                        <p>A clone of the iCoder website built using Bootstrap.
+                          It replicates the design and functionality of the original site,
+                          leveraging Bootstrap's responsive grid system and components for a modern,
+                          mobile-friendly user experience.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix web">
+                      <img src="/img/tic-tac-toe.jpg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>Tic-Tac-Toe</h3>
+                          <p>Experience the classic fun of Tic Tac Toe with a sleek, modern twist—play anywhere, anytime
+                            on your browser!</p>
+                          <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        
-        
-            <div class="portfolio-box">
-                <img src="tic-tac-toe.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h3>Tic-Tac-Toe</h3>
-                    <p>"Experience the classic fun of Tic Tac Toe with a sleek, modern twist—play anywhere, anytime on your browser!"</p>
-                        <a href = ""></a>
+              </div>
+              <div class="tab-pane fade" id="react-tab-pane" role="tabpanel" aria-labelledby="react-tab" tabindex="0">
+                <div class="row mt-4 g-2">
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix web">
+                      <img src="/img/course.jpg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>StudyHub</h3>
+                        <p>A web application for showcasing a list of courses and their details using React.
+                          The web application is used to implement the course listing page,
+                          a course details page, and a student dashboard to display enrolled courses.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div class="tab-pane fade" id="other-tab-pane" role="tabpanel" aria-labelledby="other-tab" tabindex="0">
+                <div class="row mt-4 g-2">
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix other">
+                      <img src="/img/evofriend.jpeg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>EvoFriend</h3>
+                        <p>A chatbot which give all the answer to the environment related questions.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="portfolio-box mix other">
+                      <img src="/img/terrain.jpg" alt="">
+                      <div class="portfolio-layer">
+                        <h3>Terrain Generator</h3>
+                        <p>Terrain Generator simple AI model which represents the satellite image of the terrain in the
+                          graphical format
+                          which make them easy to examine.</p>
+                        <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-12 col-lg-4">
+                  <div class="portfolio-box mix other">
+                      <img src="img7.png" alt="">
+                          <div class="portfolio-layer">
+                              <h3>EvoFriend</h3>
+                              <p>A chatbot which give all the answer to the environment related questions.</p>
+                              <a href=""></a>
+                          </div>
+                  </div> -->
+                </div>
+              </div>
             </div>
-               
-        </div>            
+          </div>
+        </div>
+      </section>
+
     </div>
-    </div>
+    <!------------------------------ End of Project Section ------------------------------->
 
-  </div>
-  <!------------------------------ End of Project Section ------------------------------->
-  
-<!------------------- Contact Section ------------------------>
-  <section class="container py-5" id="contact-section">
-    <div class="row mb-3">
+    <!------------------- Contact Section ------------------------>
+    <section class="container py-5" id="contact-section">
+      <div class="row mb-3">
         <div class="col-12">
           <h1 class="head fw-bold mb-2 text-center">Contact Us</h1>
         </div>
-    </div>
-    <div class="row">
-        <div class="cntct col-md-6 col-lg-3 d-flex justify-content-center">
-            <div class="align-self-stretch box p-4 text-center ">
-                <div class="d-flex justify-content-center align-items-center mb-3">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-location-dot fa-xl"></i>
-                    </div>
-                </div>
-                <h3>Address</h3>
-              <p>Himachal Pradesh,India</p>
-            </div>
-        </div>
+      </div>
+      <div class="row">
         <div class="cntct col-lg-3 d-flex justify-content-center">
-            <div class="align-self-stretch box p-4 text-center ">
-                <div class="d-flex justify-content-center align-items-center mb-3">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-envelope fa-xl"></i>
-                    </div>
-                </div>
-                <h3>Email</h3>
+          <div class="align-self-stretch box p-4 text-center ">
+            <div class="d-flex justify-content-center align-items-center mb-3">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <i class="fa-solid fa-location-dot fa-xl"></i>
+              </div>
             </div>
-        </div>
-        <div class="cntct col-lg-3 d-flex justify-content-center">
-            <div class="align-self-stretch box p-4 text-center ">
-                <div class="d-flex justify-content-center align-items-center mb-3">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <i class="fa-brands fa-github fa-xl"></i>
-                    </div>
-                </div>
-                <h3>Github</h3>
-
-            </div>
+            <h3>Address</h3>
+            <p>Himachal Pradesh,India</p>
+          </div>
         </div>
         <div class="cntct col-lg-3 d-flex justify-content-center">
           <div class="align-self-stretch box p-4 text-center ">
-              <div class="d-flex justify-content-center align-items-center mb-3">
-                  <div class="icon d-flex align-items-center justify-content-center">
-                      <i class="fa-brands fa-linkedin fa-xl"></i>
-                  </div>
+            <div class="d-flex justify-content-center align-items-center mb-3">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <i class="fa-solid fa-envelope fa-xl"></i>
               </div>
-              <h3>LinkedIn</h3>
+            </div>
+            <h3>Email</h3>
           </div>
+        </div>
+        <div class="cntct col-lg-3 d-flex justify-content-center">
+          <div class="align-self-stretch box p-4 text-center ">
+            <div class="d-flex justify-content-center align-items-center mb-3">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <i class="fa-brands fa-github fa-xl"></i>
+              </div>
+            </div>
+            <h3>Github</h3>
+
+          </div>
+        </div>
+        <div class="cntct col-lg-3 d-flex justify-content-center">
+          <div class="align-self-stretch box p-4 text-center ">
+            <div class="d-flex justify-content-center align-items-center mb-3">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <i class="fa-brands fa-linkedin fa-xl"></i>
+              </div>
+            </div>
+            <h3>LinkedIn</h3>
+          </div>
+        </div>
+    </section>
+
+
+    <!------------------------------------ End of Contact Section -------------------------------->
+
+    <footer>
+      <div class="footer">
+        <div class="text">
+          <p>
+            Copyright ©2024 All rights reserved <i class="fa-solid fa-heart"></i>
+          </p>
+        </div>
+        <div class="social-media">
+          <p>Find me on
+            <a href="/"><i class="fa-brands fa-twitter"></i></a>
+            <a href="/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="/"><i class="fa-brands fa-whatsapp"></i></a>
+          </p>
+
+        </div>
       </div>
-</section>
+    </footer>
 
 
-  <!------------------------------------ End of Contact Section -------------------------------->
-
-  <footer>
-    <div class="footer">
-      <div class="text">
-        <p>
-          Copyright ©2024 All rights reserved <i class="fa-solid fa-heart"></i>
-        </p>
-      </div>
-      <div class="social-media">
-        <p>Find me on 
-          <a href="/"><i class="fa-brands fa-twitter"></i></a>
-        <a href="/"><i class="fa-brands fa-facebook"></i></a>
-        <a href="/"><i class="fa-brands fa-instagram"></i></a>
-        <a href="/"><i class="fa-brands fa-whatsapp"></i></a>
-        </p>
-
-      </div>
-    </div>
-</footer>
-
-  
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>

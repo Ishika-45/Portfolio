@@ -228,12 +228,6 @@ header label{
     margin-bottom: 20px;
 }
 
-
-#resume-section pre{
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-}
 #resume-section h2{
     font-size: 50px;
     font-weight: bold;
@@ -331,6 +325,11 @@ header label{
 #resume-section button:hover{
     box-shadow: 2px 10px 10px #ffbd39;
 }
+.resume-text{
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+}
 .down{
     width: 100%;
     height: 100%;
@@ -386,7 +385,7 @@ header label{
         transition: ease-in 0.3s;
     }
     header label:hover{
-        color:#ffbd39
+        color:#ffbd39;
     }
     header label .close-btn{
         display: none;
@@ -429,7 +428,7 @@ header label{
 
 
 /*            Project-Section                */
-#Project-section h1{
+ #Project-section h1{
     font-size: 90px;
     font-weight: bold;
     margin-top: 80px;
@@ -439,14 +438,15 @@ header label{
     align-items: center;
     text-shadow: -10px 20px rgba(153, 145, 145,0.5);
     margin-bottom: 40px;
-}
+} 
 #Project-section hr{
     color: #ffbd39;
 }
 
-.filter-buttons{
+/* .filter-buttons{
     margin: 2rem;
     text-align: center;
+    background-color: #ffbd39;
 }
 
 .filter-buttons .btn{
@@ -473,9 +473,9 @@ header label{
 
 .portfolio-box img{
     width: 100%;
-    height: 100%;
+    height: 100%; */
     /* object-fit: cover; */
-    border-radius: 10px;
+    /* border-radius: 10px;
     transition: 0.5 ease;
 }
 
@@ -522,7 +522,7 @@ header label{
 .portfolio-layer p{
     font-size: 1rem;
     margin: .3rem 0 1rem;
-}
+} */
 
 /* .portfolio-layer a{
     display: inline-flex;
@@ -535,12 +535,90 @@ header label{
 
 } */
 
-.portfolio-layer a i{
+/* .portfolio-layer a i{
     font: 1em sans-serif;
     color: #ffbd39;
+} */
+.project button{
+    color: white;
+}
+.project button:hover{
+    color: #ffbd39;
+}
+.nav-underline .nav-link.active{
+    color: #ffbd39 !important;
+}
+.portfolio-box img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.5 ease;
 }
 
+.portfolio-box:hover img{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.image{
+    height: 190px;
+}
+.portfolio-box{
+    position: relative;
+    border-radius: 3rem;
+    box-shadow: 0 0 1rem rgba(255, 203, 33, 0.875);
+    overflow: hidden;
+    display:flex;
+    margin-right: 20px;
+}
 
+.portfolio-box .portfolio-layer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(219, 203, 150, 0.875);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    /* padding: 20px; */
+    transform: translateY(100%);
+    transition: 0.5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer{
+    transition: all 0.5s ease-in-out;
+    transform: translateY(0);
+
+}
+
+.portfolio-layer h3{
+    font-size: 2rem;
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.portfolio-layer p{
+    font-size: 1rem;
+    margin: .3rem 0 1rem;
+    color: #fff;
+
+}
+
+.portfolio-layer a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: #fff;
+    border-radius: 50%;
+
+}
 /* Contact-section */
 .icon{
     width: 60px;
@@ -559,14 +637,9 @@ header label{
     align-items: center;
     text-shadow: -10px 20px rgba(153, 145, 145,0.5);
     margin-bottom: 30px;
-}
+} 
 
 
-/* Footer-Section */
-.footer{
-    margin-top: 50px;
-    background-color: rgb(38, 38, 38);
-    }
 .text p{
     text-align: center;
     padding: 20px;
