@@ -68,7 +68,7 @@ header label{
     font-size: 50px;
 }
 
-.list{
+/* .list{
     padding-left: 2px;
     height: 90px;
     line-height:90px;
@@ -110,7 +110,14 @@ header label{
         left: 100%;
         margin: 0 -10px 0 10px;
     }
-}
+} */
+ .content h1{
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+ }
+ .content h1 span{
+    color:#ffbd39;
+ }
 .content button{
     padding: 10px 20px;
     font-size: 15px;
@@ -166,7 +173,6 @@ header label{
 }
 .intro{
     margin-top: 100px;
-    margin-left: 100px;
 }
 
 .home{
