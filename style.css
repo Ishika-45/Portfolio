@@ -124,7 +124,7 @@ header label{
     color: white;
     
 }
-.content button a:hover{
+.content button:hover a{
     text-decoration: none;
     color: black;
 }
@@ -132,7 +132,11 @@ header label{
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    box-shadow: 16px 8px 20px #ffbd39;
+    box-shadow: 0px 0px 6px #ffbd39,
+    0px 0px 7px #ffbd39,
+    0px 0px 8px #ffbd39,
+    0px 0px 10px #ffbd39,
+    0px 0px 20px #ffbd39;
     object-fit: cover;
     overflow: hidden;
     transition: ease-in 0.5s;
@@ -145,16 +149,12 @@ header label{
     width: 100%;
 }
 @keyframes zoom {
-    0%,100%{
+    0%,100%,50%{
         transform: scale(1);
     }
     25%,75%{
         transform: scale(1.1);
     }
-    50%{
-        transform: scale(1.2);
-    }
-    
 }
 
 #About-section{
@@ -275,10 +275,17 @@ header label{
     border-radius:16px;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid #ffbd39;
-    box-shadow: 4px 6px 6px #ffbd39;
     margin-bottom: 20px;
 }
 
+.column-1:hover{
+    cursor:pointer;
+    box-shadow: 0px 0px 6px #ffbd39,
+    0px 0px 7px #ffbd39,
+    0px 0px 8px #ffbd39,
+    0px 0px 10px #ffbd39,
+    0px 0px 20px #ffbd39;
+}
 .column-1 h4{
     color: #ffbd39;
 }
@@ -308,7 +315,8 @@ header label{
     color: white;
 }
 
-.resume button a:hover{
+.resume button:hover a{
+    font-weight: 700;
     text-decoration: none;
     color: black;
 }
@@ -320,9 +328,16 @@ header label{
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid #ffbd39;
-    box-shadow: 4px 6px 6px #ffbd39;
     color: #fff;
     margin-bottom: 20px;
+}
+.column-2:hover{
+    cursor:pointer;
+    box-shadow: 0px 0px 6px #ffbd39,
+    0px 0px 7px #ffbd39,
+    0px 0px 8px #ffbd39,
+    0px 0px 10px #ffbd39,
+    0px 0px 20px #ffbd39;
 }
 
 .column-2 h4{
@@ -334,6 +349,7 @@ header label{
     color: #ffbd39;
 }
 #resume-section button{
+    padding: 10px;
     margin:20px 10px;
 }
 #resume-section button:hover{
@@ -571,9 +587,7 @@ header label{
     transform: scale(1.1);
     cursor: pointer;
 }
-.image{
-    height: 190px;
-}
+
 .portfolio-box{
     position: relative;
     border-radius: 3rem;
@@ -595,7 +609,6 @@ header label{
     align-items: center;
     flex-direction: column;
     text-align: center;
-    /* padding: 20px; */
     transform: translateY(100%);
     transition: 0.5s ease;
 }
