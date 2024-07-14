@@ -464,6 +464,7 @@ header label{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
     text-shadow: -10px 20px rgba(153, 145, 145,0.5);
 } 
 #Project-section hr{
@@ -655,14 +656,15 @@ header label{
     font-size: 90px;
     font-weight: bold;
     margin-top: 50px;
-    margin-left: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-shadow: -10px 20px rgba(153, 145, 145,0.5);
     margin-bottom: 30px;
 } 
-
+#contact-section hr{
+    color: #ffbd39;
+}
 #footer{
     max-width: calc(100vw - 10px);
     background:rgb(50, 50, 50) ;
