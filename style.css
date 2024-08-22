@@ -517,8 +517,12 @@ header label{
     height: 60px;
     border-radius: 50%;
     box-shadow: 6px 3px 7px #ffbd39;
+    
 }
-
+.icon a{
+    color: #fff;
+    text-decoration: none;
+}
 #contact-section h1{
     font-size: 90px;
     font-weight: bold;
