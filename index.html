@@ -3,19 +3,520 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ishika Bansal</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Ishika Bansal | Full-Stack Developer & AI Enthusiast</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Inter', sans-serif;
+    }
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    body {
+      background: #0a0a0a;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 10px #222;
+      border-radius: 2rem;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ffbd39;
+      border-radius: 2rem;
+      cursor: grab;
+    }
+    ::selection {
+      background: #ffbd39;
+      color: #0a0a0a;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 6%;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 189, 57, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: 0.3s;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffbd39, #ff8c00);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .navigation a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      padding: 6px 0;
+      transition: 0.3s;
+      position: relative;
+    }
+    .navigation a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffbd39;
+      transition: 0.3s;
+    }
+    .navigation a:hover::after,
+    .navigation a.active::after {
+      width: 100%;
+    }
+    .navigation a.active {
+      color: #ffbd39;
+    }
+    #check {
+      display: none;
+    }
+    .menu-btn, .close-btn {
+      font-size: 1.8rem;
+      color: #ffbd39;
+      cursor: pointer;
+      display: none;
+    }
+    @media (max-width: 850px) {
+      .menu-btn { display: block; }
+      .navigation {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(0,0,0,0.96);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s ease;
+        gap: 2rem;
+        border-left: 2px solid #ffbd39;
+      }
+      .navigation a { margin: 0; font-size: 1.3rem; }
+      #check:checked ~ .navigation { right: 0; }
+      #check:checked ~ label .menu-btn { display: none; }
+      #check:checked ~ label .close-btn {
+        display: block;
+        position: fixed;
+        top: 1.5rem;
+        right: 2rem;
+        z-index: 1001;
+      }
+      .close-btn { display: none; }
+    }
+
+    /* sections spacing */
+    #Home-section, #About-section, #resume-section, #Project-section, #contact-section {
+      scroll-margin-top: 80px;
+    }
+    .container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    /* ----- HOME SECTION ----- */
+    .home {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+    .intro h6 {
+      color: #ffbd39;
+      font-weight: 600;
+      letter-spacing: 2px;
+      font-size: 1.2rem;
+    }
+    .name h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .name i {
+      color: #ffbd39;
+    }
+    .auto-type {
+      color: #ffbd39;
+      border-bottom: 3px solid #ffbd39;
+      font-weight: 700;
+    }
+    .btn-warning {
+      background: #ffbd39;
+      border: none;
+      font-weight: 700;
+      padding: 0.7rem 1.8rem;
+      transition: 0.3s;
+      box-shadow: 0 0 8px rgba(255,189,57,0.4);
+    }
+    .btn-warning:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px #ffbd39;
+      background: #ffaa1c;
+    }
+    .btn-outline-light {
+      border: 2px solid #ffbd39;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .btn-outline-light:hover {
+      background: #ffbd39;
+      color: black;
+      box-shadow: 0 0 15px #ffbd39;
+    }
+    .pic {
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 15px #ffbd39, 0px 0px 30px rgba(255,189,57,0.5);
+      overflow: hidden;
+      animation: zoomGlow 5s ease-in-out infinite;
+    }
+    .pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes zoomGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 15px #ffbd39, 0 0 30px rgba(255,189,57,0.4);}
+      50% { transform: scale(1.05); box-shadow: 0 0 30px #ffbd39, 0 0 50px #ffaa33; }
+    }
+    @media (max-width: 992px) {
+      .pic { width: 280px; height: 280px; }
+    }
+    @media (max-width: 768px) {
+      .home { flex-direction: column-reverse; text-align: center; }
+      .pic { margin-top: 1rem; }
+    }
+
+    /* ----- About Section ----- */
+    .img-about {
+      background: rgba(20, 20, 30, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 1.8rem;
+      border: 1px solid rgba(255,189,57,0.3);
+      transition: 0.3s;
+    }
+    .img-about:hover {
+      border-color: #ffbd39;
+      box-shadow: 0 0 18px rgba(255,189,57,0.2);
+    }
+    .about-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid #ffbd39;
+      overflow: hidden;
+      transition: 0.4s;
+    }
+    .about-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffbd39;
+    }
+    .title-s {
+      color: #ffbd39;
+      font-weight: 700;
+    }
+    .skill-mf .progress {
+      height: 8px;
+      background: #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      background: #ffbd39;
+      border-radius: 12px;
+    }
+    .linked {
+      background: #ffbd39;
+      color: #0a0a0a;
+      padding: 10px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+    }
+    .linked:hover {
+      background: #fff;
+      color: #ffbd39;
+      box-shadow: 0 0 15px #ffbd39;
+      transform: translateY(-2px);
+    }
+
+    /* Resume Section */
+    .resume {
+      background: rgba(15, 15, 20, 0.8);
+      backdrop-filter: blur(4px);
+      padding: 2rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255,189,57,0.2);
+    }
+    .resume h1, .project h1, .head {
+      font-weight: 800;
+      font-size: 2.8rem;
+      text-shadow: -5px 8px rgba(255,189,57,0.2);
+      color: #ffbd39;
+    }
+    hr {
+      background: #ffbd39;
+      height: 2px;
+      opacity: 0.6;
+      margin: 1rem 0;
+    }
+    .column-1, .column-2 {
+      background: rgba(30, 30, 40, 0.7);
+      border-radius: 1.5rem;
+      padding: 1.4rem;
+      border: 1px solid rgba(255,189,57,0.4);
+      transition: 0.3s;
+      height: 100%;
+    }
+    .column-1:hover, .column-2:hover {
+      transform: translateY(-6px);
+      border-color: #ffbd39;
+      box-shadow: 0 10px 25px rgba(255,189,57,0.2);
+    }
+    .column-1 h4, .column-2 h4 {
+      color: #ffbd39;
+      font-weight: 700;
+    }
+    .date {
+      color: #ffbd39;
+      font-weight: 500;
+    }
+    .btn-outline-warning {
+      border: 2px solid #ffbd39;
+      color: #ffbd39;
+      background: transparent;
+      transition: 0.3s;
+      padding: 8px 24px;
+    }
+    .btn-outline-warning:hover {
+      background: #ffbd39;
+      color: black;
+      box-shadow: 0 0 18px #ffbd39;
+    }
+    .btn-outline-warning a {
+      color: #ffbd39;
+      text-decoration: none;
+    }
+    .btn-outline-warning:hover a {
+      color: black;
+    }
+    .down {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    /* Projects Section - Improved image handling */
+    .portfolio-box {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255,189,57,0.3);
+      transition: 0.4s;
+      height: 280px;
+      cursor: pointer;
+      background: #1a1a2a;
+    }
+    .portfolio-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+    /* Fallback for images that don't load */
+    .portfolio-box img.error {
+      display: none;
+    }
+    .portfolio-box .img-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffbd39, #ff8c00);
+      color: #0a0a0a;
+      font-weight: bold;
+      text-align: center;
+      padding: 1rem;
+    }
+    .portfolio-box:hover img {
+      transform: scale(1.1);
+    }
+    .portfolio-layer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(255,189,57,0.85));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: 0.4s ease;
+      padding: 1rem;
+    }
+    .portfolio-box:hover .portfolio-layer {
+      opacity: 1;
+    }
+    .portfolio-layer h3 {
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .portfolio-layer p {
+      color: #f0f0f0;
+      font-size: 0.75rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+    .portfolio-layer a {
+      background: #ffbd39;
+      color: black;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .portfolio-layer a:hover {
+      transform: scale(1.1);
+      background: white;
+    }
+    .nav-underline .nav-link {
+      color: #ddd;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .nav-underline .nav-link.active {
+      color: #ffbd39 !important;
+      border-bottom-color: #ffbd39;
+    }
+    .nav-underline .nav-link:hover {
+      color: #ffbd39;
+    }
+
+    /* Contact cards */
+    .box {
+      background: rgba(20, 20, 30, 0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 1.8rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: 0.3s;
+      border: 1px solid rgba(255,189,57,0.3);
+    }
+    .box:hover {
+      transform: translateY(-8px);
+      border-color: #ffbd39;
+      box-shadow: 0 15px 30px rgba(255,189,57,0.15);
+    }
+    .icon {
+      width: 70px;
+      height: 70px;
+      background: #1e1e2a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      border: 2px solid #ffbd39;
+      transition: 0.3s;
+    }
+    .icon i, .icon a {
+      font-size: 2rem;
+      color: #ffbd39;
+    }
+    .box:hover .icon {
+      box-shadow: 0 0 18px #ffbd39;
+      background: #ffbd39;
+    }
+    .box:hover .icon i, .box:hover .icon a {
+      color: #0a0a0a;
+    }
+
+    /* Footer */
+    footer {
+      background: #050505;
+      border-top: 1px solid #ffbd39;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .social-media a {
+      color: #ffbd39;
+      font-size: 1.6rem;
+      margin: 0 12px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+    .social-media a:hover {
+      transform: scale(1.2);
+      color: white;
+      text-shadow: 0 0 8px #ffbd39;
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 768px) {
+      .resume h1, .project h1, .head { font-size: 2rem; }
+      .portfolio-box { height: 220px; }
+      .portfolio-layer h3 { font-size: 1rem; }
+      .portfolio-layer p { font-size: 0.65rem; }
+    }
+  </style>
 </head>
 
-<body class="portfolio">
-  <!------------------------ Navbar ------------------------->
+<body>
   <input type="checkbox" id="check">
   <header>
     <h2 class="logo">Ishika Bansal</h2>
@@ -23,7 +524,7 @@
       <a href="#Home-section" class="active">Home</a>
       <a href="#About-section">About</a>
       <a href="#resume-section">Resume</a>
-      <a href="#Project-section">Project</a>
+      <a href="#Project-section">Projects</a>
       <a href="#contact-section">Contact</a>
     </nav>
     <label for="check">
@@ -31,607 +532,248 @@
       <i class="fas fa-times close-btn"></i>
     </label>
   </header>
-  <!---------------------- End --------------------------->
 
-  <!---------------------Home-Section -------------------->
-  <div class="container" id="home">
-    <div class="home" id="Home-section">
+  <!-- Hero Section -->
+  <div class="container" id="Home-section" style="padding-top: 100px;">
+    <div class="home">
       <div class="intro">
+        <h6>✨ Hello, I'm</h6>
         <div class="name">
-          <h6>Hello !!</h6>
-          <pre><h1><b>I'm <i>Ishika 
-Bansal</h1></pre></b></i>
+          <h1>I'm <i>Ishika Bansal</i></h1>
         </div>
         <div class="content">
-          <h1>I'm <span class="auto-type"></span></h1>
-          <button type="button" class="btn btn-warning"><a
-              href="Ishika Resume.pdf" download>See my
-              Resume</a></button>
-          <button type="button" class="btn btn-outline-light"><a href="#Project-section">My Works</a>
-          </button>
+          <h3>I'm a <span class="auto-type" style="color:#ffbd39; font-weight:700;"></span></h3>
+          <div class="mt-4">
+            <button type="button" class="btn btn-warning me-2"><a href="Ishika Resume.pdf" download style="text-decoration:none; color:#1e1e1e;">📄 Download Resume</a></button>
+            <button type="button" class="btn btn-outline-light"><a href="#Project-section" style="text-decoration:none; color:white;">🚀 My Works</a></button>
+          </div>
         </div>
       </div>
-      <!-------------------------- Image -------------------------->
       <div class="image">
         <div class="pic">
-          <img src="/img/ISHI.png" alt="">
+          <img src="/img/ISHI.png" alt="Ishika Bansal" onerror="this.src='https://via.placeholder.com/400x400?text=Ishika'">
         </div>
       </div>
     </div>
   </div>
-  <!-------------------- End of Home Section ------------------------>
 
-  <!-------------------------------------- About-section ------------------------------->
+  <!-- About Section -->
   <div class="container" id="About-section">
-    <!--------------------- Left Bar ------------------>
-    <div class="row">
-      <div class="row d-flex align-items-stretch">
-        <div class="col-md-6 col-lg-5 d-flex">
-          <div class="img-about img d-flex align-items-stretch">
-            <div class="overlay">
-              <div class="row">
-                <div class="col-sm-6 col-md-5">
-                  <div class="about-img">
-                    <img src="/img/Ishika.png" class="img-fluid rounded b-shadow-a" alt="">
-                  </div>
-                </div>
-                <!------------ Details next to profile image -------->
-                <div class="col-sm-6 col-md-7 my-3">
-                  <div class="about-info">
-                    <p><span class="title-s">Name: </span> <span>Ishika Bansal</span></p>
-                    <p><span class="title-s">Job Role: </span> <span>Web Developer</span></p>
-                    <p><span class="title-s">Experience: </span> <span>Intermediate Level</span></p>
-                    <p><span class="title-s">Address: </span> <span>Himachal Pradesh, India</span></p>
-                  </div>
-                </div>
-              </div>
-              <!----------------- Progress section ---------------->
-              <div class="skill-mf my-5">
-                <p class="title-s">Skills</p>
-                <span>Flutter</span> <span class="pull-right">75%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-
-                <span>HTML & CSS</span> <span class="pull-right">90%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-
-                <span>JavaScript</span> <span class="pull-right">75%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-
-                <span>Java</span> <span class="pull-right">70%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="50" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-
-                <span>React</span> <span class="pull-right">50%</span>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
+    <div class="row align-items-stretch g-4 fade-up">
+      <div class="col-md-6 col-lg-5">
+        <div class="img-about h-100">
+          <div class="row align-items-center">
+            <div class="col-sm-5 text-center">
+              <div class="about-img mx-auto">
+                <img src="/img/Ishika.png" class="img-fluid w-100 h-100" alt="profile" onerror="this.src='https://via.placeholder.com/130x130?text=Photo'">
               </div>
             </div>
+            <div class="col-sm-7 mt-3 mt-sm-0">
+              <p><span class="title-s">Name:</span> Ishika Bansal</p>
+              <p><span class="title-s">Role:</span> Full-Stack (MERN + AI)</p>
+              <p><span class="title-s">Experience:</span> 3 internships · Alpha Hack 2024 winner</p>
+              <p><span class="title-s">Location:</span> Himachal Pradesh, India</p>
+            </div>
+          </div>
+          <div class="skill-mf mt-4">
+            <p class="fw-bold text-warning">Tech Stack Proficiency</p>
+            <span>React.js / Next.js</span> <span class="float-end">85%</span><div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+            <span>Node.js / Express</span> <span class="float-end">80%</span><div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+            <span>MongoDB / PostgreSQL</span> <span class="float-end">75%</span><div class="progress"><div class="progress-bar" style="width:75%"></div></div>
+            <span>OpenAI / AI Integration</span> <span class="float-end">80%</span><div class="progress"><div class="progress-bar" style="width:80%"></div></div>
           </div>
         </div>
-        <!---------------------- About text --------------------------->
-        <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-          <div class="row justify-content-start pb-3">
-            <div class="col-md-12 heading-section ftco-animate">
-              <h1 class="mb-4" id="shadow">About Me</h1>
-              <p>Detail-oriented and highly motivated Computer Science and Engineering student with a passion for
-                leveraging
-                technology to solve complex problems and drive innovation. Possessing a solid foundation in programming,
-                software
-                development, and with a keen interest in emerging technologies such as artificial intelligence and web
-                development.
-                Proven ability to collaborate effectively in team environments, communicate technical concepts clearly,
-                and adapt to
-                new challenges. Committed to continuous learning and professional growth in the rapidly evolving field
-                of computer
-                science. Seeking opportunities to apply academic knowledge and practical skills to contribute to
-                meaningful projects and
-                make a positive impact in the tech industry.</p>
-            </div>
-          </div>
-
-          <!------------------------ LinkedIn ------------------>
-          <div class="projects d-flex mt-md-3 ">
-            <div class="text">
-              <p class="mb-4">
-                <span>5+ Projects completed</span>
-              </p>
-              <div class="btn justify-content-center">
-                <a href="https://www.linkedin.com/in/ishika-bansal-3443a4250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                  class="linked">LinkedIn</a>
-              </div>
-
-            </div>
-          </div>
+      </div>
+      <div class="col-md-6 col-lg-7">
+        <h1 class="mb-3" style="color:#ffbd39; font-weight:800;">About Me</h1>
+        <p class="lead">Full-Stack Developer with hands-on experience across the MERN stack, Firebase, Supabase, and Docker. Built AI-powered SaaS platforms integrating OpenAI APIs, JWT/OAuth, and real-time workflows. 1st Runner-Up Alpha Hack 2024 among 200+ teams.</p>
+        <p>🚀 EvolveWeb AI (startup blueprint generator), JobGenie (500+ MAU recruitment platform), PlanPilot (Kanban with real-time sync). Passionate about AI, system design, and open source.</p>
+        <div class="mt-4">
+          <a href="https://www.linkedin.com/in/ishika-bansal-3443a4250" target="_blank" class="linked"><i class="fab fa-linkedin me-2"></i>Connect on LinkedIn</a>
+          <a href="https://github.com/Ishika-45" target="_blank" class="btn btn-outline-warning ms-3"><i class="fab fa-github"></i> GitHub</a>
         </div>
       </div>
     </div>
   </div>
-  <!----------------------------------- End of About Section ---------------------------->
 
+  <!-- Resume Section -->
   <div class="container" id="resume-section">
-    <!----------------------- Resume Section --------------------------->
-    <div class="resume ">
+    <div class="resume fade-up">
       <h1>Resume</h1>
-      <p class="resume-text">A student of B.Tech CSE and a Web Developer and Graphic Designer.
-        Also a core member of Robotronics Club and interested in Web development and AI/ML
-      </p>
-      <div class="experience my-3">
-        <h2>Experience</h2>
+      <p class="resume-text mt-2">B.Tech CSE | Full-stack & AI | Robotronics Core | Hackathon Finalist</p>
+
+      <div class="experience my-4">
+        <h2 class="text-warning">💼 Experience</h2>
         <hr>
-        <div class="row">
-          <div class="column-1 col-md-6 col-lg-5">
-            <h4>Electronio.tech</h4>
-            <p>Internship Student, Mullana,Ambala, Haryana</p>
-            <p class="date">09/2023 - 03/2024</p>
-            <p class="cmpny"> It is a startup which provide IIOT components for the students at reasonable price, worked
-              as
-              intern of
-              Web Developer and Graphic Designer there. It was a learning phase of my skill ,I generates several posters
-              ,pamphlets
-              and discounts coupons there and learn how the functioning of E-Commerce Websites and their backend.</p>
-          </div>
-
-          <div class="column-2 col-md-6">
-            <h4>Codsoft</h4>
-            <p>Internship Student, Mullana,Ambala, Haryana</p>
-            <p class="date">01/05/2024 - 31/05/2024</p>
-            <p class="cmpny">CodSoft are IT services and IT consultancy that specializes in creating innovative
-              solutions for businesses.
-              Their aim is to help students lacking basic skills by offering hands-on learning through live projects and
-              real-world examples so likewise I worked as intern of Web development
-              and make several projects using HTML,CSS and JavaScript.
-            </p>
-          </div>
-
+        <div class="row g-4">
+          <div class="col-md-6"><div class="column-1"><h4>Celebal Technologies · React Intern</h4><p class="date">Jan 2025 – Mar 2025</p><p>Built 5+ React apps, reduced re-renders 30%, reusable component library. Delivered PlanPilot Kanban serving 100+ users.</p></div></div>
+          <div class="col-md-6"><div class="column-2"><h4>CodSoft · Web Dev Intern</h4><p class="date">May 2024 – Jun 2024</p><p>4+ responsive web apps, increased user engagement by 20% via UI/UX improvements.</p><h4 class="mt-2">Marketing Intern · IoT Startup</h4><p>Boosted campaign reach by 30% with Canva assets & UI enhancements.</p></div></div>
         </div>
       </div>
-      <!----------------------- End of Experience ----------------------->
-      <div class="achievement my-3 ">
-        <h2>Achievements</h2>
-        <hr>
-        <div class="row">
-          <div class="column-1 col-md-6 col-lg-5 ">
-            <h4>Robotronics Club</h4>
-            <p class="cmpny">
-            <ul class="roles">
-              <li> Core Team Member of Robotronics Club (a robotics club which encourage students in robotics).</li>
-              <li> Volunteer several Workshops and Events organized by our club.</li>
-              <li> Student Organizer in UniversuMM'23 (an annual fest of our university) in Robosoccer and RoboBlitzz
-                organized by
-                our club.</li>
-            </ul>
-            </p>
-          </div>
-          <div class="column-2 col-md-6 ">
-            <h4>Participations</h4>
-            <p class="cmpny">
-            <ul class="roles">
-              <li>Participated in Hackerverse1.0 (a college level Hackathon) in 2022 held in our college.</li>
-              <li>Participated in Smart India Hackathon'23.</li>
-              <li> 1st runner up in Alpha Hack (an Intra University Hackathon) in March,2024 held in our college.</li>
-              <li>Participated in Snap Syntax (Frontend development competition) in March,2024 held in Cognizance'24 in
-                IIT
-                Roorkee.</li>
-              <li> Participated in Intel Gen AI Hackathon (a Gen AI Hackathon by Intel) in March,2024 held in
-                Cognizance'24 in IIT
-                Roorkee..</li>
-            </ul>
-            </p>
-          </div>
 
+      <div class="achievement my-4">
+        <h2 class="text-warning">🏆 Featured Projects</h2>
+        <hr>
+        <div class="row g-3">
+          <div class="col-md-4"><div class="column-1"><h5>EvolveWeb AI</h5><p>React, Node, OpenAI → generates startup blueprints, cuts planning time ~70%.</p></div></div>
+          <div class="col-md-4"><div class="column-2"><h5>JobGenie</h5><p>Supabase + Clerk, 500+ MAU, role-based workflows.</p></div></div>
+          <div class="col-md-4"><div class="column-1"><h5>PlanPilot</h5><p>Firebase Kanban, real-time sync sub-200ms, drag-drop sprints.</p></div></div>
         </div>
       </div>
-      <!-- End of Achievements -->
-      <div class="Education">
-        <h2>Education</h2>
+
+      <div class="achievement my-3">
+        <h2 class="text-warning">🏅 Achievements</h2>
         <hr>
         <div class="row">
-          <div class="column-1 col-md-6 col-lg-5 ">
-            <h4>Bachelors of Technology</h4>
-            <p class="cmpny">2022-2026</p>
-            <p class="clg">Maharishi Markhandeswar Deemed to be University</p>
-          </div>
-          <div class="column-2 col-md-6 ">
-            <h4>Higher Secondary School</h4>
-            <p class="cmpny">2021-2022</p>
-            <p class="clg">Career Academy Senior Secondary School</p>
-          </div>
+          <div class="col-md-6"><ul class="list-unstyled"><li>🥈 1st Runner-Up, Alpha Hack 2024 (200+ teams)</li><li>🌟 Smart India Hackathon & Intel GenAI Finalist</li></ul></div>
+          <div class="col-md-6"><ul class="list-unstyled"><li>📜 Certified System Administrator – ServiceNow</li><li>🤖 Core Team Member Robotronics Club · led 4 workshops</li></ul></div>
         </div>
       </div>
-      <!---------------------------------------------- End of Education ----------------------------------->
-      <div class="down"><button type="button" class="btn btn-outline-warning"><a
-            href="Ishika Resume.pdf" download>Download CV</a>
+      <div class="Education mt-3">
+        <h2 class="text-warning">🎓 Education</h2>
+        <hr>
+        <div class="row"><div class="col-md-6"><h5>B.Tech CSE</h5><p>MM University · CGPA 8.72 (2022–2026)</p></div><div class="col-md-6"><h5>Higher Secondary</h5><p>Career Academy Senior Secondary School</p></div></div>
       </div>
-
+      <div class="down">
+        <button class="btn btn-outline-warning"><a href="Ishika Resume.pdf" download style="text-decoration:none;">📄 Download Full CV</a></button>
+      </div>
     </div>
-
   </div>
-  <!-------------------------------------- End of Resume Section ------------------------------------->
 
-  <!------------------------------------- Project-section ------------------------------------------->
+  <!-- Projects Section - ALL projects including Web Dev, with PlanPilot image fixed -->
   <div class="container" id="Project-section">
-    <div class="project">
-      <section class="container mt-2 ">
-        <div class="row">
-          <div class="col-12">
-            <h1>Projects</h1>
-            <hr>
+    <div class="project fade-up">
+      <h1 class="text-center">Projects</h1>
+      <hr style="width: 120px; margin: 0 auto 1.5rem auto;">
+      <ul class="nav nav-underline justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#all-pane">All</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#web-pane">Web Dev</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#react-pane">React.js</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#ai-pane">AI/ML</button></li>
+      </ul>
+      <div class="tab-content mt-4">
+        <!-- ALL PROJECTS - Includes ALL web dev projects + latest 3 -->
+        <div class="tab-pane fade show active" id="all-pane">
+          <div class="row g-4">
+            <!-- Latest Project 1: EvolveWeb AI -->
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box">
+                <img src="/img/EvolveWebAi.png" alt="EvolveWeb AI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="img-fallback" style="display:none; background:linear-gradient(135deg,#ffbd39,#ff8c00); color:#0a0a0a; font-weight:bold;">EvolveWeb AI</div>
+                <div class="portfolio-layer"><h3>EvolveWeb AI</h3><p>AI SaaS that generates startup blueprints from prompts. Reduces planning time ~70%.</p><a href="https://github.com/Ishika-45/EvolveWebAI" target="_blank"><i class="fab fa-github"></i></a></div>
+              </div>
+            </div>
+            <!-- Latest Project 2: JobGenie -->
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/JobGenie.png" alt="JobGenie" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">JobGenie</div><div class="portfolio-layer"><h3>JobGenie</h3><p>AI recruitment platform with 500+ MAU, role-based workflows. Supabase + Clerk.</p><a href="https://github.com/Ishika-45/JobGenie" target="_blank"><i class="fab fa-github"></i></a></div></div>
+            </div>
+            <!-- Latest Project 3: PlanPilot (Fixed image) -->
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/PlanPilot.png" alt="PlanPilot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">PlanPilot</div><div class="portfolio-layer"><h3>PlanPilot</h3><p>Kanban task management with sprint planning, drag-drop, Firebase real-time sync. 100+ users.</p><a href="https://github.com/Ishika-45/PlanPilot" target="_blank"><i class="fab fa-github"></i></a></div></div>
+            </div>
+            <!-- Web Dev Project: Stopwatch -->
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/stopwatch.jpg!bw700" alt="Stopwatch" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">Stopwatch</div><div class="portfolio-layer"><h3>Stopwatch</h3><p>Precision stopwatch built with HTML, CSS, JavaScript.</p><a href="https://66c76a622f99f10d8690fce7--astounding-tulumba-6c7d4b.netlify.app/" target="_blank"><i class="fa-solid fa-globe"></i></a></div></div>
+            </div>
+            <!-- Web Dev Project: Tic Tac Toe -->
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/tic-tac-toe.jpg" alt="Tic Tac Toe" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">Tic Tac Toe</div><div class="portfolio-layer"><h3>Tic Tac Toe</h3><p>Classic two-player game with responsive design.</p><a href="https://66c758a5bfea21409e05da78--fanciful-gumption-81cb7b.netlify.app/" target="_blank"><i class="fa-solid fa-globe"></i></a></div></div>
+            </div>
+            <!-- Web Dev Project: Calculator -->
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/calculator.jpg" alt="Calculator" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">Calculator</div><div class="portfolio-layer"><h3>Calculator</h3><p>Sleek calculator for basic arithmetic operations.</p><a href="https://66c76103d921d35b0e7a7fdb--fancy-alfajores-2a2b8b.netlify.app/" target="_blank"><i class="fa-solid fa-globe"></i></a></div></div>
+            </div>
+            <!-- Other projects -->
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/evofriend.jpeg" alt="EvoFriend" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">EvoFriend</div><div class="portfolio-layer"><h3>EvoFriend</h3><p>Eco AI chatbot for environment-related queries.</p><a href="#"><i class="fa-solid fa-link"></i></a></div></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/curecrafter.png" alt="CureCrafter" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">CureCrafter</div><div class="portfolio-layer"><h3>CureCrafter</h3><p>AI chatbot providing home remedies for common ailments.</p><a href="https://github.com/Dhairya931/Cure-Crafter.git" target="_blank"><i class="fab fa-github"></i></a></div></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/weatherapp.png" alt="Weather App" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">Weather App</div><div class="portfolio-layer"><h3>Weather App</h3><p>React-based real-time weather updates and forecasts.</p><a href="https://clever-axolotl-6e9f9f.netlify.app/" target="_blank"><i class="fa-solid fa-globe"></i></a></div></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/to-do_list.jpg" alt="To Do List" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">To Do List</div><div class="portfolio-layer"><h3>TaskFlow</h3><p>React-based task management app.</p><a href="#"><i class="fa-solid fa-list-check"></i></a></div></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/terrain.jpg" alt="Terrain Generator" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">Terrain Gen</div><div class="portfolio-layer"><h3>Terrain Generator AI</h3><p>AI model for satellite terrain visualization.</p><a href="#"><i class="fa-solid fa-mountain"></i></a></div></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-box"><img src="/img/course.jpg" alt="StudyHub" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"><div class="img-fallback" style="display:none;">StudyHub</div><div class="portfolio-layer"><h3>StudyHub</h3><p>Course listing and student dashboard with React.</p><a href="https://66c759c74600d74d77d950f4--euphonious-hotteok-1deecd.netlify.app/courses" target="_blank"><i class="fa-solid fa-globe"></i></a></div></div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <ul class="nav nav-underline justify-content-center mt-3 g-2" id="myTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active fs-5 me-2 me-md-4" id="all-tab" data-bs-toggle="tab"
-                  data-bs-target="#all-tab-pane" type="button" role="tab" aria-controls="all-tab-pane"
-                  aria-selected="true">All</button>
-              </li>
-              <li class="nav-item" role="presentation">
-
-                <button class="nav-link fs-5 me-2 me-md-4" id="profile-tab" data-bs-toggle="tab"
-                  data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
-                  aria-selected="false">Web development</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link fs-5 me-2 me-md-4" id="react-tab" data-bs-toggle="tab"
-                  data-bs-target="#react-tab-pane" type="button" role="tab" aria-controls="react-tab-pane"
-                  aria-selected="false">React</button>
-
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link fs-5 me-2 me-md-4" id="other-tab" data-bs-toggle="tab"
-                  data-bs-target="#other-tab-pane" type="button" role="tab" aria-controls="other-tab-pane"
-                  aria-selected="false">Others</button>
-
-              </li>
-            </ul>
-
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
-                tabindex="0">
-                <div class="row mt-4 g-2">
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix other">
-                      <img src="/img/evofriend.jpeg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>EvoFriend</h3>
-                        <p>A chatbot which give all the answer to the environment related questions.</p>
-                        <!-- <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a> -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix other">
-                      <img src="/img/terrain.jpg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>Terrain Generator</h3>
-                        <p>Terrain Generator simple AI model which represents the satellite image of the terrain in the
-                          graphical format
-                          which make them easy to examine.</p>
-                        <a href="https://github.com/Dhairya931/TerrainGenerator.git"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/curecrafter.png" alt="">
-                      <div class="portfolio-layer">
-                        <h3>CureCrafter</h3>
-                        <p>CureCrafter is a simple but effective AI chatbot which provides home remedies for common
-                          ailments.</p>
-                        <a href="https://github.com/Dhairya931/Cure-Crafter.git"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-<!-- New row -->
-<div class="row mt-4 g-2">
-  <div class="col-12 col-lg-4">
-    <div class="portfolio-box mix react">
-      <img src="/img/weatherapp.png" alt="">
-      <div class="portfolio-layer">
-        <h3>Weather App</h3>
-        <p>A sleek React-based weather app that provides real-time weather updates and forecasts for any location.</p>
-        <a href="https://clever-axolotl-6e9f9f.netlify.app/"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
+        <!-- Web Dev Pane -->
+        <div class="tab-pane fade" id="web-pane">
+          <div class="row g-4">
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/stopwatch.jpg!bw700" alt="Stopwatch"><div class="portfolio-layer"><h3>Stopwatch</h3><p>JS/CSS</p><a href="https://66c76a622f99f10d8690fce7--astounding-tulumba-6c7d4b.netlify.app/"><i class="fa-solid fa-globe"></i></a></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/tic-tac-toe.jpg" alt="Tic Tac Toe"><div class="portfolio-layer"><h3>Tic Tac Toe</h3><p>Classic game</p><a href="https://66c758a5bfea21409e05da78--fanciful-gumption-81cb7b.netlify.app/"><i class="fa-solid fa-globe"></i></a></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/calculator.jpg" alt="Calculator"><div class="portfolio-layer"><h3>Calculator</h3><p>Sleek design</p><a href="https://66c76103d921d35b0e7a7fdb--fancy-alfajores-2a2b8b.netlify.app/"><i class="fa-solid fa-globe"></i></a></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/curecrafter.png" alt="CureCrafter"><div class="portfolio-layer"><h3>CureCrafter</h3><p>AI remedies web</p></div></div></div>
+          </div>
+        </div>
+        <!-- React Pane -->
+        <div class="tab-pane fade" id="react-pane">
+          <div class="row g-4">
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/EvolveWebAi.png" alt="EvolveWeb AI"><div class="portfolio-layer"><h3>EvolveWeb AI</h3><p>React + OpenAI</p></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/PlanPilot.png" alt="PlanPilot"><div class="portfolio-layer"><h3>PlanPilot</h3><p>Kanban React</p></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/weatherapp.png" alt="Weather"><div class="portfolio-layer"><h3>Weather React</h3></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/to-do_list.jpg" alt="Todo"><div class="portfolio-layer"><h3>TaskFlow</h3></div></div></div>
+          </div>
+        </div>
+        <!-- AI/ML Pane -->
+        <div class="tab-pane fade" id="ai-pane">
+          <div class="row g-4">
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/EvolveWebAi.png" alt="EvolveWeb AI"><div class="portfolio-layer"><h3>EvolveWeb AI</h3><p>OpenAI integration</p></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/JobGenie.png" alt="JobGenie"><div class="portfolio-layer"><h3>JobGenie AI</h3><p>Recruitment AI</p></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/evofriend.jpeg" alt="EvoFriend"><div class="portfolio-layer"><h3>EvoFriend AI</h3></div></div></div>
+            <div class="col-md-4"><div class="portfolio-box"><img src="/img/terrain.jpg" alt="Terrain"><div class="portfolio-layer"><h3>Terrain Gen</h3></div></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-12 col-lg-4">
-    <div class="portfolio-box mix react">
-      <img src="/img/course.jpg" alt="">
-      <div class="portfolio-layer">
-        <h3>StudyHub</h3>
-        <p>A web application for showcasing a list of courses and their details using React.
-          The web application is used to implement the course listing page,
-          a course details page, and a student dashboard to display enrolled courses.</p>
-        <a href="https://66c759c74600d74d77d950f4--euphonious-hotteok-1deecd.netlify.app/courses"><i
-            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-      </div>
+
+  <!-- Contact -->
+  <div class="container" id="contact-section">
+    <h1 class="head text-center">Let's Connect</h1>
+    <hr style="width:80px; margin: 0 auto 2rem auto; height:3px;">
+    <div class="row g-4 text-center">
+      <div class="col-md-3 col-6"><div class="box"><div class="icon"><i class="fa-solid fa-location-dot"></i></div><h5>Address</h5><p>Himachal, India</p></div></div>
+      <div class="col-md-3 col-6"><div class="box"><div class="icon"><i class="fa-solid fa-envelope"></i></div><h5>Email</h5><p>bansalishika58@gmail.com</p></div></div>
+      <div class="col-md-3 col-6"><div class="box"><div class="icon"><a href="https://github.com/Ishika-45"><i class="fab fa-github"></i></a></div><h5>GitHub</h5><p>Ishika-45</p></div></div>
+      <div class="col-md-3 col-6"><div class="box"><div class="icon"><a href="https://www.linkedin.com/in/ishika-bansal-3443a4250"><i class="fab fa-linkedin"></i></a></div><h5>LinkedIn</h5><p>Ishika Bansal</p></div></div>
     </div>
   </div>
-  <div class="col-12 col-lg-4">
-    <div class="portfolio-box mix react">
-      <img src="/img/to-do_list.jpg" alt="">
-      <div class="portfolio-layer">
-        <h3>To Do List</h3>
-        <p>Effortlessly manage your tasks with our sleek and intuitive React-based to-do list app, designed for productivity on the go!</p>
-        <a href="https://66c760b2882f3d5621c7377a--stalwart-pie-43afb7.netlify.app/"><i
-            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-      </div>
-    </div>
-  </div>
-</div>
 
-
-
-                <div class="row mt-4 g-2">
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/stopwatch.jpg!bw700" alt="">
-                      <div class="portfolio-layer">
-                        <h3>StopWatch</h3>
-                        <p>Time yourself with precision and style using my sleek stopwatch, built with HTML, CSS, and JavaScript!</p>
-                        <a href="https://66c76a622f99f10d8690fce7--astounding-tulumba-6c7d4b.netlify.app/"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/tic-tac-toe.jpg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>Tic-Tac-Toe</h3>
-                        <p>Experience the classic fun of Tic Tac Toe with a sleek, modern twist—play anywhere, anytime
-                          on your browser!</p>
-                        <a href="https://66c758a5bfea21409e05da78--fanciful-gumption-81cb7b.netlify.app/"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/calculator.jpg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>Calculator</h3>
-                        <p>Effortlessly crunch numbers with this sleek, intuitive calculator built using HTML, CSS, and JavaScript.</p>
-                        <a href="https://66c76103d921d35b0e7a7fdb--fancy-alfajores-2a2b8b.netlify.app/"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
-                tabindex="0">
-                <div class="row mt-4 g-2">
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/curecrafter.png" alt="">
-                      <div class="portfolio-layer">
-                        <h3>CureCrafter</h3>
-                        <p>CureCrafter is a simple but effective AI chatbot which provides home remedies for common
-                          ailments.</p>
-                        <a href="https://github.com/Dhairya931/Cure-Crafter.git"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/stopwatch.jpg!bw700" alt="">
-                      <div class="portfolio-layer">
-                        <h3>StopWatch</h3>
-                        <p>Time yourself with precision and style using my sleek stopwatch, built with HTML, CSS, and JavaScript!</p>
-                        <a href="https://66c76a622f99f10d8690fce7--astounding-tulumba-6c7d4b.netlify.app/"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/tic-tac-toe.jpg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>Tic-Tac-Toe</h3>
-                        <p>I designed a responsive Tic-Tac-Toe game using HTML, CSS, and JavaScript, featuring an intuitive user interface and logic for two-player gameplay, ensuring a fun and interactive experience.</p>
-                        <a href="https://66c758a5bfea21409e05da78--fanciful-gumption-81cb7b.netlify.app/"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4 my-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/calculator.jpg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>Calculator</h3>
-                        <p>Effortlessly crunch numbers with this sleek, intuitive calculator built using HTML, CSS, and JavaScript.</p>
-                        <a href="https://66c76103d921d35b0e7a7fdb--fancy-alfajores-2a2b8b.netlify.app/"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="react-tab-pane" role="tabpanel" aria-labelledby="react-tab" tabindex="0">
-                <div class="row mt-4 g-2">
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/course.jpg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>StudyHub</h3>
-                        <p>A web application for showcasing a list of courses and their details using React.
-                          The web application is used to implement the course listing page,
-                          a course details page, and a student dashboard to display enrolled courses.</p>
-                        <a href="https://66c759c74600d74d77d950f4--euphonious-hotteok-1deecd.netlify.app/courses"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix web">
-                      <img src="/img/weatherapp.png" alt="">
-                      <div class="portfolio-layer">
-                        <h3>Weather App</h3>
-                        <p>A sleek React-based weather app that provides real-time weather updates and forecasts for any
-                          location.</p>
-                        <a href="https://clever-axolotl-6e9f9f.netlify.app/"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix react">
-                      <img src="/img/to-do_list.jpg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>To Do List</h3>
-                        <p>Effortlessly manage your tasks with our sleek and intuitive React-based to-do list app, designed for productivity on the go!</p>
-                        <a href="https://66c760b2882f3d5621c7377a--stalwart-pie-43afb7.netlify.app/"><i
-                            class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="other-tab-pane" role="tabpanel" aria-labelledby="other-tab" tabindex="0">
-                <div class="row mt-4 g-2">
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix other">
-                      <img src="/img/evofriend.jpeg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>EvoFriend</h3>
-                        <p>A chatbot which give all the answer to the environment related questions.</p>
-                        <!-- <a href=""><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a> -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4">
-                    <div class="portfolio-box mix other">
-                      <img src="/img/terrain.jpg" alt="">
-                      <div class="portfolio-layer">
-                        <h3>Terrain Generator</h3>
-                        <p>Terrain Generator simple AI model which represents the satellite image of the terrain in the
-                          graphical format
-                          which make them easy to examine.</p>
-                        <a href="https://github.com/Dhairya931/TerrainGenerator.git"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #FFD43B;"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div class="col-12 col-lg-4">
-                  <div class="portfolio-box mix other">
-                      <img src="img7.png" alt="">
-                          <div class="portfolio-layer">
-                              <h3>EvoFriend</h3>
-                              <p>A chatbot which give all the answer to the environment related questions.</p>
-                              <a href=""></a>
-                          </div>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </div>
-  <!------------------------------ End of Project Section ------------------------------->
-
-  <!------------------- Contact Section ------------------------>
-  <section class="container py-5" id="contact-section">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="head fw-bold  text-center">Contact Me</h1>
-        <hr>
-      </div>
-    </div>
-    <div class="row">
-      <div class="cntct col-lg-3 d-flex justify-content-center">
-        <div class="align-self-stretch box p-4 text-center ">
-          <div class="d-flex justify-content-center align-items-center mb-3">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-location-dot fa-xl"></i>
-            </div>
-          </div>
-          <h3>Address</h3>
-          <p>Himachal Pradesh,India</p>
-        </div>
-      </div>
-      <div class="cntct col-lg-3 d-flex justify-content-center">
-        <div class="align-self-stretch box p-4 text-center ">
-          <div class="d-flex justify-content-center align-items-center mb-3">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-envelope fa-xl"></i>
-            </div>
-          </div>
-          <h3>Email</h3>
-          <p>bansalishika58@gmail.com</p>
-        </div>
-      </div>
-      <div class="cntct col-lg-3 d-flex justify-content-center">
-        <div class="align-self-stretch box p-4 text-center ">
-          <div class="d-flex justify-content-center align-items-center mb-3">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <a href="https://github.com/Ishika-45" ></href><i class="fa-brands fa-github fa-xl"></i></a>
-            </div>
-          </div>
-          <h3>Github</h3>
-          <p>Ishika-45</p>
-        </div>
-      </div>
-      <div class="cntct col-lg-3 d-flex justify-content-center">
-        <div class="align-self-stretch box p-4 text-center ">
-          <div class="d-flex justify-content-center align-items-center mb-3">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <a href="https://www.linkedin.com/in/ishika-bansal-3443a4250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin fa-xl"></i></a>
-            </div>
-          </div>
-          <h3>LinkedIn</h3>
-          <p>Ishika Bansal</p>
-        </div>
-      </div>
-  </section>
-
-
-  <!------------------------------------ End of Contact Section -------------------------------->
-
-  <footer id="footer">
-    <div class="footer">
-      <div class="text">
-        <p>
-          Copyright ©2024 All rights reserved <i class="fa-solid fa-heart"></i>
-        </p>
-      </div>
-      <div class="social-media">
-        <p>Find me on
-          <a href="/"><i class="fa-brands fa-twitter"></i></a>
-          <a href="/"><i class="fa-brands fa-facebook"></i></a>
-          <a href="/"><i class="fa-brands fa-instagram"></i></a>
-          <a href="/"><i class="fa-brands fa-whatsapp"></i></a>
-        </p>
-
-      </div>
-    </div>
+  <footer>
+    <div class="text"><p>Copyright ©2025 All rights reserved <i class="fa-solid fa-heart" style="color:#ffbd39;"></i> by Ishika Bansal</p></div>
+    <div class="social-media"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div>
   </footer>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <script src="script.js"></script>
+  <script>
+    new Typed('.auto-type', {
+      strings: ['Full-Stack Developer', 'MERN Expert', 'AI Enthusiast', 'OpenAI Integrator'],
+      typeSpeed: 60, backSpeed: 35, loop: true
+    });
+    // fade-up observer
+    const faders = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    faders.forEach(el => observer.observe(el));
+    // nav active highlight
+    const sections = document.querySelectorAll('#Home-section, #About-section, #resume-section, #Project-section, #contact-section');
+    const navLinks = document.querySelectorAll('.navigation a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => { if(window.scrollY >= sec.offsetTop - 150) current = sec.getAttribute('id'); });
+      navLinks.forEach(link => { link.classList.remove('active'); if(link.getAttribute('href') === `#${current}`) link.classList.add('active'); });
+    });
+  </script>
 </body>
 
 </html>
